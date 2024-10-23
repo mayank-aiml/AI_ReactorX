@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Law of Thermodynamics Calculator - Reversible Process</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>First Law of Thermodynamics Calculator - Reversible Process</h2>
+    <div class="container">
+        <label for="pressure">Pressure (P in Pa):</label>
+        <input type="number" id="pressure" placeholder="Enter Pressure (Pa)">
+        
+        <label for="volumeChange">Change in Volume (ΔV in m³):</label>
+        <input type="number" id="volumeChange" placeholder="Enter Change in Volume (m³)">
+
+        <button onclick="calculateWork()">Calculate Work Done</button>
+
+        <div class="result">
+            <h3 id="resultText"></h3>
+        </div>
+    </div>
+
+    <script>
+        // Function to calculate work done in a reversible process
+        function calculateWork() {
+            var pressure = parseFloat(document.getElementById("pressure").value);
+            var volumeChange = parseFloat(document.getElementById("volumeChange").value);
+            var resultText = document.getElementById("resultText");
+
+            if (isNaN(pressure) || isNaN(volumeChange)) {
+                resultText.innerText = "Please enter valid values for Pressure and Volume Change.";
+                return;
+            }
+
+            // Work done in a reversible process W = P * ΔV
+            var workDone = pressure * volumeChange;
+            resultText.innerText = "Work Done (Reversible): " + workDone + " J";
+        }
+    </script>
+
+</body>
+</html>
